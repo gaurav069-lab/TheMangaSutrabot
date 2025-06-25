@@ -1,3 +1,6 @@
+# bot.py में इन लाइन्स को ऐड करें (सबसे ऊपर)
+import os
+os.system('pkill -f "python bot.py"')  # सभी पुराने प्रोसेस kill करेगा
 import telebot
 from telebot.types import InlineKeyboardMarkup, InlineKeyboardButton
 import json

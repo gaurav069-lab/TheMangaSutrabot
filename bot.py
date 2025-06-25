@@ -5,7 +5,7 @@ import os
 from datetime import datetime, timedelta
 
 # === CONFIGURATION ===
-BOT_TOKEN = "7991449866:AAEnELqEwg-KmgRfaVzxRcsG343p8Ax99Kk"
+BOT_TOKEN = "7991449866:AAGC7VpX5Gpn8k8ghof7IEVDdcxGbRFdx_I"
 ADMIN_ID = 6411610393
 MAIN_CHANNEL = 'MANGASUTRAOFFICIAL'
 DATA_FILE = 'comics_data.json'

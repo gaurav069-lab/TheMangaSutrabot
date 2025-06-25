@@ -467,3 +467,18 @@ if __name__ == "__main__":
     
     print("🤖 Bot is running with VIP Zone...")
     bot.infinity_polling()
+import os
+from flask import Flask
+
+app = Flask(__name__)
+
+@app.route('/')
+def home():
+    return "Bot is running!"
+
+if __name__ == '__main__':
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host='0.0.0.0', port=port)
+    # बॉट को अलग थ्रेड में चलाएं
+    import threading
+    threading.Thread(target=bot.infinity_polling).start()

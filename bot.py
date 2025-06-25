@@ -485,3 +485,30 @@ if __name__ == '__main__':
     # बॉट को अलग थ्रेड में चलाएं
     import threading
     threading.Thread(target=bot.infinity_polling).start()
+import time
+from flask import Flask, request
+
+app = Flask(__name__)
+
+@app.route('/')
+def home():
+    return "Bot is running!"
+
+if __name__ == '__main__':
+    # Render-specific configuration
+    port = int(os.environ.get("PORT", 5000))
+    
+    # Start Flask server in a thread
+    import threading
+    threading.Thread(
+        target=app.run,
+        kwargs={'host':'0.0.0.0','port':port}
+    ).start()
+    
+    # Start bot with auto-restart
+    while True:
+        try:
+            bot.infinity_polling(none_stop=True, timeout=60)
+        except Exception as e:
+            print(f"Bot crashed: {e}")
+            time.sleep(5)
